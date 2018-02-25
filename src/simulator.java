@@ -21,6 +21,8 @@ public class simulator
 		
 		//simulator initialization
 		maxTime = 100;
+		totalTask = 100;
+		maxTaskPerRound = 20;
 		schedulerList = new scheduler[]{
 							new fcfs(maxTime),
 							new sjf(maxTime),
@@ -28,8 +30,6 @@ public class simulator
 							new pf(maxTime),
 							new knapsack(maxTime)
 							};
-		totalTask = 100;
-		maxTaskPerRound = 20;
 		
 		//run all scheduler
 		do
