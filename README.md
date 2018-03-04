@@ -9,6 +9,7 @@ It currently support 5 scheduler:
 3. Longest Job First
 4. Priority First
 5. Knapsack
+6. Best fit Bin Packing
 
 ## How to use
 First, you need to set up the simulator. Let's go to simulator.java [line 23-25], you can change the setting of the simulator. Then you just need to compile and run the program. It is easy!<br />
