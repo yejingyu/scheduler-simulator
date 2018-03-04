@@ -28,7 +28,8 @@ public class simulator
 							new sjf(maxTime),
 							new ljf(maxTime),
 							new pf(maxTime),
-							new knapsack(maxTime)
+							new knapsack(maxTime),
+							new binPacking(maxTime)
 							};
 		
 		//run all scheduler
