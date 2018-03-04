@@ -19,4 +19,4 @@ If you want to add new task type, you can do so at taskType.java [line 15]. You 
 1. Add real SMM task to taskType.java.
 2. Build a input system so that the user not need to recompile after changing the setting.
 3. Add more statistics infomation collection.
-4. Support Bin Packing scheduler.
+4. [Done!] ~~Support Bin Packing scheduler.~~
