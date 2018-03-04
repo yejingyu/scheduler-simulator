@@ -29,7 +29,7 @@ public class fcfs extends scheduler
 		return true;
 	}
 
-	//pring the name of the scheduler and use the function
+	//print the name of the scheduler and use the function
 	//in parent to print the task list
 	public void printTask()
 	{
@@ -37,7 +37,7 @@ public class fcfs extends scheduler
 		super.printTask();
 	}
 
-	//pring the name of the scheduler and use the function
+	//print the name of the scheduler and use the function
 	//in parent to print the status
 	public void printStat()
 	{

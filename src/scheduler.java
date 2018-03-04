@@ -1,6 +1,6 @@
 /* This file has the implementation of scheduler. It is the base class of
  * all other schedulers. It is respond to store and print the data and
- * statistics data.
+ * 	 data.
  * eexecutionRound is how many runs the scheduler process at lease one job.
  * emptyRound is how many runs the scheduler process all its job.
  * sumOfJobRemain is the sum of the number of remain jobs after each runs.
@@ -51,13 +51,13 @@ public abstract class scheduler
 	/* This is the base scheduler that pop as much task as possible
 	 * before the time run out. If the scheduler has its own requirement
 	 * of scheduling, this one should not be use. It returns <0 if error
-	 * occuer; otherwise, it return the total task runtime.
+	 * occur; otherwise, it return the total task runtime.
 	 */
 	public int schedule()
 	{
 		int timer = 0;
 		
-		//if the scheduler has no tesk, return 0
+		//if the scheduler has no task, return 0
 		if(taskList.isEmpty())
 			return 0;
 		

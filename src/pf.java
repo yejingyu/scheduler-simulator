@@ -16,7 +16,7 @@ public class pf extends scheduler
 	}
 
 	//Run the scheduler, pop as much scheduler as possible before
-	//the time run out. It returns <0 if error occuer, otherwise,
+	//the time run out. It returns <0 if error occur, otherwise,
 	//it return the total task runtime.
 	public int schedule()
 	{
@@ -39,7 +39,7 @@ public class pf extends scheduler
 		return true;
 	}
 	
-	//pring the name of the scheduler and use the function
+	//print the name of the scheduler and use the function
 	//in parent to print the task list
 	public void printTask()
 	{
@@ -47,7 +47,7 @@ public class pf extends scheduler
 		super.printTask();
 	}
 
-	//pring the name of the scheduler and use the function
+	//print the name of the scheduler and use the function
 	//in parent to print the status
 	public void printStat()
 	{
