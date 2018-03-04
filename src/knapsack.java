@@ -19,9 +19,9 @@ public class knapsack extends scheduler
 	public int schedule()
 	{
 		int timer = 0;
-		task buffer;
+		task taskBuffer;
 		LinkedList<Integer> runList;
-		//if the scheduler has no tesk, return 0
+		//if the scheduler has no task, return 0
 		if(taskList.isEmpty())
 			return 0;
 		
@@ -37,7 +37,7 @@ public class knapsack extends scheduler
 		backpackMatrix = new backpack[taskList.size()][maxRuntime+1];//include 0 runtime
 		for(int i=0; i < taskList.size(); i++)
 		{
-			buffer = taskList.get(i);
+			taskBuffer = taskList.get(i);
 			backpackMatrix[i][0] = new backpack();//backpackMatrix initialization
 			for(int j=1; j <= maxRuntime; j++)
 			{
@@ -48,15 +48,15 @@ public class knapsack extends scheduler
 					backpackMatrix[i][j] = new backpack();
 				
 				
-				if(buffer.getRuntime()<= j)
+				if(taskBuffer.getRuntime() + backpackMatrix[i][j].getWeight()<= j)
 				{
 					//max((the Value Of This Task + the max value Of( allowed runtime - This Task)),
 					//    (the max value Of current allowed runtime without this task))
-					if(buffer.getPriority()
-							+ backpackMatrix[i][j-buffer.getRuntime()].getValue()
+					if(taskBuffer.getPriority()
+							+ backpackMatrix[i][j-taskBuffer.getRuntime()].getValue()
 							> backpackMatrix[i][j].getValue())
 					{							
-						backpackMatrix[i][j].addTesk(i, buffer);
+						backpackMatrix[i][j].addTesk(i, taskBuffer);
 					}
 				}
 			}
@@ -92,7 +92,7 @@ public class knapsack extends scheduler
 		return false;
 	}
 	
-	//pring the name of the scheduler and use the function
+	//print the name of the scheduler and use the function
 	//in parent to print the task list
 	public void printTask()
 	{
@@ -100,7 +100,7 @@ public class knapsack extends scheduler
 		super.printTask();
 	}
 
-	//pring the name of the scheduler and use the function
+	//print the name of the scheduler and use the function
 	//in parent to print the status
 	public void printStat()
 	{

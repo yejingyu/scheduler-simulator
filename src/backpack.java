@@ -5,13 +5,13 @@ import java.util.LinkedList;
 
 public class backpack
 {
-	private LinkedList<Integer> jobPosition;
+	private LinkedList<Integer> taskPosition;
 	private int totalValue;
 	private int totalWeight;
 	
 	backpack()
 	{
-		jobPosition = new LinkedList<Integer>();
+		taskPosition = new LinkedList<Integer>();
 		totalValue = 0;
 		totalWeight = 0;
 	}
@@ -23,25 +23,30 @@ public class backpack
 	
 	public void clone(backpack source)
 	{
-		jobPosition = new LinkedList<Integer>(source.jobPosition);
+		taskPosition = new LinkedList<Integer>();
+		for(Integer element : source.taskPosition)
+			taskPosition.addLast(element);
 		totalValue = source.totalValue;
 		totalWeight = source.totalWeight;
 	}
 	
-	public void addTesk(int taskPosition, task inData)
+	
+	//when adding task, sort the task position from large to small so that
+	//when the scheduler remove the task, the position would not be massed up
+	public void addTesk(int sourceTaskPosition, task inData)
 	{
-		Integer buffer = new Integer(taskPosition);
+		Integer buffer = new Integer(sourceTaskPosition);
 
 		totalValue += inData.getPriority();
 		totalWeight += inData.getRuntime();
 		
-		for(int i = 0; i < jobPosition.size(); i++)
-			if(buffer.intValue() > jobPosition.get(i).intValue())
+		for(int i = 0; i < taskPosition.size(); i++)
+			if(buffer.intValue() > taskPosition.get(i).intValue())
 			{
-				jobPosition.add(i, buffer);
+				taskPosition.add(i, buffer);
 				return;
 			}
-		jobPosition.addLast(buffer);
+		taskPosition.addLast(buffer);
 	}
 	
 	public int getValue()
@@ -56,6 +61,6 @@ public class backpack
 	
 	public LinkedList<Integer> getPositions()
 	{
-		return jobPosition;
+		return taskPosition;
 	}
 }
