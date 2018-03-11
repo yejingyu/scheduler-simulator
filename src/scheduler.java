@@ -22,7 +22,7 @@ public abstract class scheduler
 	
 	scheduler()
 	{
-		maxRuntime = 150;
+		maxRuntime = 100;
 		executionRound = 0;
 		emptyRound = 0;
 		sumOfJobRemain = 0;
@@ -107,12 +107,14 @@ public abstract class scheduler
 	//print the statistics status of the scheduler
 	void printStat(int totalRound)
 	{
-		System.out.println("\n  Eexecution Round      : " + executionRound +
-						   "\n  Empty Round             : " + emptyRound +
-						   "\n  Sum of Job Remain       : " + sumOfRuntimeRemain +
-						   "\n  Avg Job Remain Per Round: " + sumOfRuntimeRemain/totalRound +
-						   "\n  Sum of Runtime Remain   : " + sumOfPriorityRemain +
-						   "\n  Sum of Priority Remain  : " + sumOfJobRemain + "\n");
+		System.out.println("\n  Eexecution Round             : " + executionRound +
+						   "\n  Empty Round                  : " + emptyRound +
+						   "\n  Sum of Job Remain            : " + sumOfJobRemain +
+						   "\n  Sum of Runtime Remain        : " + sumOfRuntimeRemain +
+						   "\n  Sum of Priority Remain       : " + sumOfPriorityRemain +
+						   "\n  Avg Job Remain Per Round     : " + sumOfJobRemain/totalRound +
+						   "\n  Avg Runtime Remain Per Round : " + sumOfRuntimeRemain/totalRound +
+						   "\n  Avg Priority Remain Per Round: " + sumOfPriorityRemain/totalRound + "\n");
 	}
 	
 	//print the status of the scheduler

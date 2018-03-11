@@ -38,6 +38,7 @@ public class knapsack extends scheduler
 		for(int i=0; i < taskList.size(); i++)
 		{
 			taskBuffer = taskList.get(i);
+			
 			backpackMatrix[i][0] = new backpack();//backpackMatrix initialization
 			for(int j=1; j <= maxRuntime; j++)
 			{
@@ -48,14 +49,16 @@ public class knapsack extends scheduler
 					backpackMatrix[i][j] = new backpack();
 				
 				
-				if(taskBuffer.getRuntime() + backpackMatrix[i][j].getWeight()<= j)
+				if(taskBuffer.getRuntime()<= j)
 				{
 					//max((the Value Of This Task + the max value Of( allowed runtime - This Task)),
 					//    (the max value Of current allowed runtime without this task))
 					if(taskBuffer.getPriority()
 							+ backpackMatrix[i][j-taskBuffer.getRuntime()].getValue()
 							> backpackMatrix[i][j].getValue())
-					{							
+					{	
+						if(i > 0)
+							backpackMatrix[i][j] = new backpack(backpackMatrix[i-1][j-taskBuffer.getRuntime()]);
 						backpackMatrix[i][j].addTesk(i, taskBuffer);
 					}
 				}
