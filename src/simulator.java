@@ -14,6 +14,7 @@ public class simulator
 	public static void main(String[] args)
 	{
 		int taskPerRound = 0;
+		int totalRound = 0;
 		int maxTime;
 		int i,j;
 		task taskBuffer;
@@ -74,11 +75,12 @@ public class simulator
 					break;
 				}
 			}
+			totalRound++;
 		}
 		while(totalTask > 0 || !allSchedulerEmpty);
 		
 		System.out.print("\nStatistics:\n");
 		for(i = 0; i < schedulerList.length; i++)
-			schedulerList[i].printStat();
+			schedulerList[i].printStat(totalRound);
 	}
 }
