@@ -49,9 +49,9 @@ public class ljf extends scheduler
 
 	//print the name of the scheduler and use the function
 	//in parent to print the status
-	public void printStat()
+	public void printStat(int toatlRound)
 	{
 		System.out.print("Longest Job First:");
-		super.printStat();
+		super.printStat(toatlRound);
 	}
 }
