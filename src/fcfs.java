@@ -39,9 +39,9 @@ public class fcfs extends scheduler
 
 	//print the name of the scheduler and use the function
 	//in parent to print the status
-	public void printStat()
+	public void printStat(int toatlRound)
 	{
 		System.out.print("First Come First Served:");
-		super.printStat();
+		super.printStat(toatlRound);
 	}
 }
