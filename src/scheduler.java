@@ -105,13 +105,14 @@ public abstract class scheduler
 	}
 	
 	//print the statistics status of the scheduler
-	void printStat()
+	void printStat(int totalRound)
 	{
 		System.out.println("\n  Eexecution Round      : " + executionRound +
-						   "\n  Empty Round           : " + emptyRound +
-						   "\n  Sum of Job Remain     : " + sumOfRuntimeRemain +
-						   "\n  Sum of Runtime Remain : " + sumOfPriorityRemain +
-						   "\n  Sum of Priority Remain: " + sumOfJobRemain + "\n");
+						   "\n  Empty Round             : " + emptyRound +
+						   "\n  Sum of Job Remain       : " + sumOfRuntimeRemain +
+						   "\n  Avg Job Remain Per Round: " + sumOfRuntimeRemain/totalRound +
+						   "\n  Sum of Runtime Remain   : " + sumOfPriorityRemain +
+						   "\n  Sum of Priority Remain  : " + sumOfJobRemain + "\n");
 	}
 	
 	//print the status of the scheduler
