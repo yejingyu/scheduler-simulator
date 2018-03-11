@@ -10,9 +10,10 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public enum taskType
 {
-	test1(2,5,1),
-	test2(5,15,3),
-	test3(15,20,2);
+	test1(2,5,25),
+	test2(5,15,25),
+	test3(15,20,25),
+	test4(50,60,25);
 	
 	
 	private int minRuntime;
@@ -47,6 +48,12 @@ public enum taskType
 	public int possibleRuntime()
 	{
 		return ThreadLocalRandom.current().nextInt(minRuntime, maxRuntime+ 1);
+	}
+	
+	//return a possible task runtime
+	public int possiblePriority()
+	{
+		return ThreadLocalRandom.current().nextInt(1, priority+ 1);
 	}
 	
 	//return the priority of task

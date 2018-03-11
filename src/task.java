@@ -22,7 +22,7 @@ public class task {
 	task(taskType source)
 	{
 		runtime = source.possibleRuntime();
-		priority = source.priority();
+		priority = source.possiblePriority();
 	}
 	
 	task(int sourceTime, int sourcePriority)
