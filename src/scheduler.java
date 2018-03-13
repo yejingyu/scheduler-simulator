@@ -111,7 +111,8 @@ public abstract class scheduler
 		//Empty Round indicates that after running if the algo has zero tasks, it would mark it as zero in empty round
 		//Sum of Job Remaning is total number of tasks remaning
 		//Sum of Runtime Remain is total runtime of the tasks remaining in the scheduler after each task is executed
-		 
+		//Sum of Priority Remain is after each run, the total number of priority remaining for every job
+ 
 		System.out.println("\n  Eexecution Round             : " + executionRound +
 				   "\n  Empty Round                  : " + emptyRound +
 			           "\n  Sum of Job Remain            : " + sumOfJobRemain +
