@@ -107,14 +107,19 @@ public abstract class scheduler
 	//print the statistics status of the scheduler
 	void printStat(int totalRound)
 	{
+		//Execution Round is total number of loops that algorithm is taking
+		//Empty Round indicates that after running if the algo has zero tasks, it would mark it as zero in empty round
+		//Sum of Job Remaning is total number of tasks remaning
+		//Sum of Runtime Remain is total runtime of the tasks remaining in the scheduler after each task is executed
+		 
 		System.out.println("\n  Eexecution Round             : " + executionRound +
-						   "\n  Empty Round                  : " + emptyRound +
-						   "\n  Sum of Job Remain            : " + sumOfJobRemain +
-						   "\n  Sum of Runtime Remain        : " + sumOfRuntimeRemain +
-						   "\n  Sum of Priority Remain       : " + sumOfPriorityRemain +
-						   "\n  Avg Job Remain Per Round     : " + sumOfJobRemain/totalRound +
-						   "\n  Avg Runtime Remain Per Round : " + sumOfRuntimeRemain/totalRound +
-						   "\n  Avg Priority Remain Per Round: " + sumOfPriorityRemain/totalRound + "\n");
+				   "\n  Empty Round                  : " + emptyRound +
+			           "\n  Sum of Job Remain            : " + sumOfJobRemain +
+				   "\n  Sum of Runtime Remain        : " + sumOfRuntimeRemain +
+				   "\n  Sum of Priority Remain       : " + sumOfPriorityRemain +
+				   "\n  Avg Job Remain Per Round     : " + sumOfJobRemain/totalRound +
+				   "\n  Avg Runtime Remain Per Round : " + sumOfRuntimeRemain/totalRound +
+				   "\n  Avg Priority Remain Per Round: " + sumOfPriorityRemain/totalRound + "\n");
 	}
 	
 	//print the status of the scheduler
