@@ -8,11 +8,13 @@ public class fcfs extends scheduler
 	fcfs()
 	{
 		super();
+		initials = "FCFS";
 	}
 	
 	fcfs(int givenMaxTime)
 	{
 		super(givenMaxTime);
+		initials = "FCFS";
 	}
 	
 	public int schedule()
@@ -27,14 +29,6 @@ public class fcfs extends scheduler
 		
 		taskList.addLast(buffer);
 		return true;
-	}
-
-	//print the name of the scheduler and use the function
-	//in parent to print the task list
-	public void printTask()
-	{
-		System.out.print("FCFS: ");
-		super.printTask();
 	}
 
 	//print the name of the scheduler and use the function

@@ -8,11 +8,13 @@ public class ljf extends scheduler
 	ljf()
 	{
 		super();
+		initials = "LJF";
 	}
 	
 	ljf(int givenMaxTime)
 	{
 		super(givenMaxTime);
+		initials = "LJF";
 	}
 
 	//Run the scheduler, pop as much scheduler as possible before
@@ -37,14 +39,6 @@ public class ljf extends scheduler
 			}
 		taskList.addLast(buffer);
 		return true;
-	}
-	
-	//print the name of the scheduler and use the function
-	//in parent to print the task list
-	public void printTask()
-	{
-		System.out.print("LJF : ");
-		super.printTask();
 	}
 
 	//print the name of the scheduler and use the function

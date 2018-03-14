@@ -9,11 +9,13 @@ public class knapsack extends scheduler
 	knapsack()
 	{
 		super();
+		initials = "KNAP";
 	}
 	
 	knapsack(int givenMaxTime)
 	{
 		super(givenMaxTime);
+		initials = "KNAP";
 	}
 	
 	public int schedule()
@@ -100,14 +102,6 @@ public class knapsack extends scheduler
 		
 		taskList.addLast(buffer);
 		return false;
-	}
-	
-	//print the name of the scheduler and use the function
-	//in parent to print the task list
-	public void printTask()
-	{
-		System.out.print("KNAP: ");
-		super.printTask();
 	}
 
 	//print the name of the scheduler and use the function

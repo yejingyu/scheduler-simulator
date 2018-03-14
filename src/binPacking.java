@@ -9,11 +9,13 @@ public class binPacking extends scheduler
 	binPacking()
 	{
 		super();
+		initials = "BINP";
 	}
 	
 	binPacking(int givenMaxTime)
 	{
 		super(givenMaxTime);
+		initials = "BINP";
 	}
 	
 	public int schedule()
@@ -105,14 +107,6 @@ public class binPacking extends scheduler
 		
 		taskList.addLast(buffer);
 		return true;
-	}
-
-	//print the name of the scheduler and use the function
-	//in parent to print the task list
-	public void printTask()
-	{
-		System.out.print("BINP: ");
-		super.printTask();
 	}
 
 	//print the name of the scheduler and use the function

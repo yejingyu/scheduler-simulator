@@ -10,6 +10,7 @@ import java.util.LinkedList;
 
 public abstract class scheduler
 {
+	protected String initials;
 	protected int maxRuntime;
 	protected int executionRound;
 	protected int emptyRound;
@@ -104,6 +105,11 @@ public abstract class scheduler
 	void printTask()
 	{
 		boolean notFirst = false;
+		System.out.print(initials);
+		for(int i = initials.length(); i < 4; i++)
+			System.out.print(" ");
+		System.out.print(": ");
+		
 		for(task element : taskList)
 		{
 			if(notFirst)
@@ -125,15 +131,15 @@ public abstract class scheduler
 		//Sum of Priority Remain is after each run, the total number of priority remaining for every job
  
 		System.out.println("\n  Eexecution Round             : " + executionRound +
-				   		  "\n  Empty Round                  : " + emptyRound +
-			              "\n  Sum of Job Remain            : " + sumOfJobRemain +
-			              "\n  Sum of Runtime Remain        : " + sumOfRuntimeRemain +
-			              "\n  Sum of Priority Remain       : " + sumOfPriorityRemain +
-			              "\n  Avg Job Remain Per Round     : " + sumOfJobRemain/totalRound +
-			              "\n  Avg Runtime Remain Per Round : " + sumOfRuntimeRemain/totalRound +
-			              "\n  Avg Priority Remain Per Round: " + sumOfPriorityRemain/totalRound + 
-			              "\n  Maximum number of Job Remaining : " + maxJobRemain + 
-			              "\n  Maximum Runtime Remaining : " + maxRuntimeRemain + "\n");
+				   		   "\n  Empty Round                  : " + emptyRound +
+			               "\n  Sum of Job Remain            : " + sumOfJobRemain +
+			               "\n  Sum of Runtime Remain        : " + sumOfRuntimeRemain +
+			               "\n  Sum of Priority Remain       : " + sumOfPriorityRemain +
+			               "\n  Avg Job Remain Per Round     : " + sumOfJobRemain/totalRound +
+			               "\n  Avg Runtime Remain Per Round : " + sumOfRuntimeRemain/totalRound +
+			               "\n  Avg Priority Remain Per Round: " + sumOfPriorityRemain/totalRound + 
+			               "\n  Max number of Job Remaining  : " + maxJobRemain + 
+			               "\n  Max Runtime Remaining        : " + maxRuntimeRemain + "\n");
 	}
 	
 	//print the status of the scheduler
@@ -141,4 +147,45 @@ public abstract class scheduler
 	{
 		return taskList.isEmpty();
 	}
+	
+	String getInitials()
+	{
+		return initials;
+	}
+	
+	int getExecutionRound()
+	{
+		return executionRound;
+	}
+	
+	int getEmptyRound()
+	{
+		return emptyRound;
+	}
+	
+	int getMaxJobRemain()
+	{
+		return maxJobRemain;
+	}
+	
+	int getMaxRuntimeRemain()
+	{
+		return maxRuntimeRemain;
+	}
+	
+	int getSumOfJobRemain()
+	{
+		return sumOfJobRemain;
+	}
+	
+	int getSumOfRuntimeRemain()
+	{
+		return sumOfRuntimeRemain;
+	}
+	
+	int getSumOfPriorityRemain()
+	{
+		return sumOfPriorityRemain;
+	}
+	
 }
