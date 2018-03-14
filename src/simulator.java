@@ -22,7 +22,7 @@ public class simulator
 		
 		//simulator initialization
 		maxTime = 100;
-		totalTask = 100;
+		totalTask = 400;
 		maxTaskPerRound = 20;
 		schedulerList = new scheduler[]{
 							new fcfs(maxTime),

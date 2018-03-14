@@ -17,7 +17,8 @@ public class binPacking extends scheduler
 	}
 	
 	public int schedule()
-	{
+	{	
+		int runtimeRemain = 0;
 		LinkedList<bin> binList = new LinkedList<bin>();
 		LinkedList<Integer> runList;
 		int timer = 0;
@@ -82,11 +83,17 @@ public class binPacking extends scheduler
 		if(taskList.isEmpty())
 			emptyRound++;
 		sumOfJobRemain += taskList.size();
+
+		if(taskList.size() > maxJobRemain)
+			maxJobRemain = taskList.size();
 		for(task element : taskList)
 		{
+			runtimeRemain += element.getRuntime();
 			sumOfRuntimeRemain += element.getRuntime();
 			sumOfPriorityRemain += element.getPriority();
 		}
+		if(runtimeRemain > maxRuntimeRemain)
+			maxRuntimeRemain = runtimeRemain;
 		
 		return timer; //return total time of tasks has been run
 	}

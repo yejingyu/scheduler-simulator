@@ -18,6 +18,7 @@ public class knapsack extends scheduler
 	
 	public int schedule()
 	{
+		int runtimeRemain = 0;
 		int timer = 0;
 		task taskBuffer;
 		LinkedList<Integer> runList;
@@ -76,13 +77,19 @@ public class knapsack extends scheduler
 		executionRound++;
 		if(taskList.isEmpty())
 			emptyRound++;
+		
 		sumOfJobRemain += taskList.size();
+		
+		if(taskList.size() > maxJobRemain)
+			maxJobRemain = taskList.size();
 		for(task element : taskList)
 		{
+			runtimeRemain += element.getRuntime();
 			sumOfRuntimeRemain += element.getRuntime();
 			sumOfPriorityRemain += element.getPriority();
 		}
-		
+		if(runtimeRemain > maxRuntimeRemain)
+			maxRuntimeRemain = runtimeRemain;
 		return timer; //return total time of tasks has been run
 	}
 	

@@ -13,6 +13,8 @@ public abstract class scheduler
 	protected int maxRuntime;
 	protected int executionRound;
 	protected int emptyRound;
+	protected int maxJobRemain;
+	protected int maxRuntimeRemain;
 	protected int sumOfJobRemain;
 	protected int sumOfRuntimeRemain;
 	protected int sumOfPriorityRemain;
@@ -28,6 +30,8 @@ public abstract class scheduler
 		sumOfJobRemain = 0;
 		sumOfRuntimeRemain = 0;
 		sumOfPriorityRemain = 0;
+		maxJobRemain = 0;
+		maxRuntimeRemain = 0;
 		taskList = new LinkedList<task>();
 	}
 	
@@ -39,6 +43,8 @@ public abstract class scheduler
 		sumOfJobRemain = 0;
 		sumOfRuntimeRemain = 0;
 		sumOfPriorityRemain = 0;
+		maxJobRemain = 0;
+		maxRuntimeRemain = 0;
 		taskList = new LinkedList<task>();
 	}
 	
@@ -56,7 +62,7 @@ public abstract class scheduler
 	public int schedule()
 	{
 		int timer = 0;
-		
+		int runtimeRemain = 0;
 		//if the scheduler has no task, return 0
 		if(taskList.isEmpty())
 			return 0;
@@ -80,12 +86,17 @@ public abstract class scheduler
 		if(taskList.isEmpty())
 			emptyRound++;
 		sumOfJobRemain += taskList.size();
+
+		if(taskList.size() > maxJobRemain)
+			maxJobRemain = taskList.size();
 		for(task element : taskList)
 		{
+			runtimeRemain += element.getRuntime();
 			sumOfRuntimeRemain += element.getRuntime();
 			sumOfPriorityRemain += element.getPriority();
 		}
-		
+		if(runtimeRemain > maxRuntimeRemain)
+			maxRuntimeRemain = runtimeRemain;
 		return timer; //return total time of tasks has been run
 	}
 	
@@ -108,19 +119,21 @@ public abstract class scheduler
 	void printStat(int totalRound)
 	{
 		//Execution Round is total number of loops that algorithm is taking
-		//Empty Round indicates that after running if the algo has zero tasks, it would mark it as zero in empty round
-		//Sum of Job Remaning is total number of tasks remaning
+		//Empty Round indicates that after running if the algorithm has zero tasks, it would mark it as zero in empty round
+		//Sum of Job Remaining is total number of tasks remaining 
 		//Sum of Runtime Remain is total runtime of the tasks remaining in the scheduler after each task is executed
 		//Sum of Priority Remain is after each run, the total number of priority remaining for every job
  
 		System.out.println("\n  Eexecution Round             : " + executionRound +
-				   "\n  Empty Round                  : " + emptyRound +
-			           "\n  Sum of Job Remain            : " + sumOfJobRemain +
-				   "\n  Sum of Runtime Remain        : " + sumOfRuntimeRemain +
-				   "\n  Sum of Priority Remain       : " + sumOfPriorityRemain +
-				   "\n  Avg Job Remain Per Round     : " + sumOfJobRemain/totalRound +
-				   "\n  Avg Runtime Remain Per Round : " + sumOfRuntimeRemain/totalRound +
-				   "\n  Avg Priority Remain Per Round: " + sumOfPriorityRemain/totalRound + "\n");
+				   		  "\n  Empty Round                  : " + emptyRound +
+			              "\n  Sum of Job Remain            : " + sumOfJobRemain +
+			              "\n  Sum of Runtime Remain        : " + sumOfRuntimeRemain +
+			              "\n  Sum of Priority Remain       : " + sumOfPriorityRemain +
+			              "\n  Avg Job Remain Per Round     : " + sumOfJobRemain/totalRound +
+			              "\n  Avg Runtime Remain Per Round : " + sumOfRuntimeRemain/totalRound +
+			              "\n  Avg Priority Remain Per Round: " + sumOfPriorityRemain/totalRound + 
+			              "\n  Maximum number of Job Remaining : " + maxJobRemain + 
+			              "\n  Maximum Runtime Remaining : " + maxRuntimeRemain + "\n");
 	}
 	
 	//print the status of the scheduler
